@@ -4,10 +4,10 @@ from .views import PostViewSet, GroupViewSet, CommentViewSet
 
 
 router = DefaultRouter()
-router.register('posts', PostViewSet, basename='post')
+router.register(r'posts', PostViewSet, basename='post')
+router.register(r'groups', GroupViewSet, basename='group')
 router.register(
     r'posts/(?P<post_id>\d+)/comments', CommentViewSet, basename='comment')
-router.register('groups', GroupViewSet, basename='group')
 
 urlpatterns = [
     path('', include(router.urls)),
