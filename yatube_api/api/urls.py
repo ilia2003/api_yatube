@@ -1,5 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken import views
 from .views import PostViewSet, GroupViewSet, CommentViewSet
 
 
@@ -15,4 +16,5 @@ urlpatterns = [
         {'get': 'list', 'post': 'create'})),
     path('posts/<int:post_id>/comments/<int:pk>/', CommentViewSet.as_view(
         {'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+    path('api/v1/api-token-auth/', views.obtain_auth_token),
 ]
